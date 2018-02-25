@@ -18,6 +18,12 @@ namespace Server.Dal.Models
 		public int HoraFim { get; set; }
 		public bool OpenBar { get; set; }
 		public int QuantidadeDeAmbientes { get; set; }
-		public string FaixaEtária { get; set; }
+		public string FaixaEtaria { get; set; }
+		public int MaximoIngressos { get; set; }
+		public int IngressosVendidos { get; set; }
+
+		
+		public ICollection<Participante> Participante { get; set; }
+
 	}
 }

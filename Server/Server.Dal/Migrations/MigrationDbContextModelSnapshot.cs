@@ -10,11 +10,10 @@ using System;
 
 namespace Server.Dal.Migrations
 {
-    [DbContext(typeof(DataBase))]
-    [Migration("20180225034113_EditandoTabelaEvento")]
-    partial class EditandoTabelaEvento
+    [DbContext(typeof(MigrationDbContext))]
+    partial class MigrationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,13 +28,17 @@ namespace Server.Dal.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<string>("FaixaEtária");
+                    b.Property<string>("FaixaEtaria");
 
                     b.Property<int>("HoraFim");
 
                     b.Property<int>("HoraInicio");
 
+                    b.Property<int>("IngressosVendidos");
+
                     b.Property<string>("Local");
+
+                    b.Property<int>("MaximoIngressos");
 
                     b.Property<string>("Nome");
 
@@ -46,6 +49,32 @@ namespace Server.Dal.Migrations
                     b.HasKey("IdEvento");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("Server.Dal.Models.Participante", b =>
+                {
+                    b.Property<int>("IdParticipante")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<int?>("EventoIdEvento");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("IdParticipante");
+
+                    b.HasIndex("EventoIdEvento");
+
+                    b.ToTable("Participantes");
+                });
+
+            modelBuilder.Entity("Server.Dal.Models.Participante", b =>
+                {
+                    b.HasOne("Server.Dal.Models.Evento")
+                        .WithMany("Participante")
+                        .HasForeignKey("EventoIdEvento");
                 });
 #pragma warning restore 612, 618
         }

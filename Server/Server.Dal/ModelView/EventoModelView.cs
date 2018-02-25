@@ -13,5 +13,6 @@ namespace Server.Dal.ModelView
 		public int HoraFim { get; set; }
 		public bool OpenBar { get; set; }
 		public int QuantidadeDeAmbientes { get; set; }
+		public int MaximoIngressos { get; set; }
 	}
 }

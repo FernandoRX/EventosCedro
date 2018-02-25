@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Server.Dal.Migrations
 {
-    public partial class AdicionandoTabelaEventos : Migration
+    public partial class AdicionandoTabelaEvento : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,10 +16,12 @@ namespace Server.Dal.Migrations
                     IdEvento = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Data = table.Column<DateTime>(nullable: false),
-                    FaixaEtária = table.Column<string>(nullable: true),
-                    HoraFim = table.Column<DateTime>(nullable: false),
-                    HoraInicio = table.Column<DateTime>(nullable: false),
+                    FaixaEtaria = table.Column<string>(nullable: true),
+                    HoraFim = table.Column<int>(nullable: false),
+                    HoraInicio = table.Column<int>(nullable: false),
+                    IngressosVendidos = table.Column<int>(nullable: false),
                     Local = table.Column<string>(nullable: true),
+                    MaximoIngressos = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
                     OpenBar = table.Column<bool>(nullable: false),
                     QuantidadeDeAmbientes = table.Column<int>(nullable: false)

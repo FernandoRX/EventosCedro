@@ -10,10 +10,11 @@ using System;
 
 namespace Server.Dal.Migrations
 {
-    [DbContext(typeof(DataBase))]
-    partial class DataBaseModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MigrationDbContext))]
+    [Migration("20180225151102_AdicionandoTabelaEvento")]
+    partial class AdicionandoTabelaEvento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,13 +29,17 @@ namespace Server.Dal.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<string>("FaixaEtária");
+                    b.Property<string>("FaixaEtaria");
 
                     b.Property<int>("HoraFim");
 
                     b.Property<int>("HoraInicio");
 
+                    b.Property<int>("IngressosVendidos");
+
                     b.Property<string>("Local");
+
+                    b.Property<int>("MaximoIngressos");
 
                     b.Property<string>("Nome");
 

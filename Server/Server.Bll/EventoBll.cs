@@ -45,6 +45,7 @@ namespace Server.Bll
 
 		public Evento PrepareEvento(EventoModelView eventoModelView, Evento evento)
 		{
+			
 			evento.Data = eventoModelView.Data;
 			evento.HoraFim = eventoModelView.HoraFim;
 			evento.HoraInicio = eventoModelView.HoraInicio;
@@ -52,22 +53,20 @@ namespace Server.Bll
 			evento.Nome = eventoModelView.Nome;
 			evento.OpenBar = eventoModelView.OpenBar;
 			evento.QuantidadeDeAmbientes = eventoModelView.QuantidadeDeAmbientes;
+			evento.MaximoIngressos = eventoModelView.MaximoIngressos;
 
 			if (evento.HoraInicio > 10 && evento.HoraFim < 20 && evento.QuantidadeDeAmbientes > 2)
 			{
-				evento.FaixaEtária = "Menor que 16 anos";
+				evento.FaixaEtaria = "Menor que 16 anos";
 			}
 			else if (evento.HoraInicio > 20 && evento.HoraFim < 2 && evento.OpenBar == false)
 			{
-				evento.FaixaEtária = "Maior que 16 anos";
+				evento.FaixaEtaria = "Maior que 16 anos";
 			}
 			else
-				evento.FaixaEtária = "Maior que 18 anos";
-
+				evento.FaixaEtaria = "Maior que 18 anos";
 
 			return evento;
 		}
-
-
 	}
 }
