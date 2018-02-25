@@ -13,7 +13,8 @@ using Server.Dal;
 
 namespace Server.App
 {
-    public class Startup
+
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -25,9 +26,10 @@ namespace Server.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+			
+			services.AddMvc();
 
-			services.AddDbContext<DataBase>(options =>
+			services.AddDbContext<MigrationDbContext>(options =>
 			options.UseMySql("server=localhost;" +
 			"userid=root;" +
 			"password=root;database=eventoscedro;"));

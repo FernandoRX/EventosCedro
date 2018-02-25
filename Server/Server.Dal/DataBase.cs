@@ -8,10 +8,20 @@ namespace Server.Dal
 {
     public class DataBase : DbContext
     {
-		//public DataBase(DbContextOptions<DataBase> options)
-		//	: base(options)
-		//{ }
+		private static DataBase instance;
+		private DataBase() { }
 
+		public static DataBase Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new DataBase();
+				}
+				return instance;
+			}
+		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Server.Dal.Models
+namespace Server.Dal.ModelView
 {
-    public class Evento
+    public class EventoModelView
     {
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int IdEvento { get; set; }
 		public string Nome { get; set; }
 		public DateTime Data { get; set; }
 		public string Local { get; set; }
@@ -18,6 +13,5 @@ namespace Server.Dal.Models
 		public int HoraFim { get; set; }
 		public bool OpenBar { get; set; }
 		public int QuantidadeDeAmbientes { get; set; }
-		public string FaixaEtária { get; set; }
 	}
 }
