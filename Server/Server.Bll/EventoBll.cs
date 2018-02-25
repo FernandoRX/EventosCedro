@@ -68,5 +68,18 @@ namespace Server.Bll
 
 			return evento;
 		}
+
+		public bool VerificaSeTemIngresso(int id)
+		{
+			var eventoDao = new EventoDao();
+			var evento = eventoDao.GetById(id);
+			if (evento.IngressosVendidos < evento.MaximoIngressos)
+			{
+				evento.IngressosVendidos++;
+				return true;
+			}
+			else
+				return false;
+		}
 	}
 }

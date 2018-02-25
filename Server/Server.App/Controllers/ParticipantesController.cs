@@ -18,8 +18,15 @@ namespace Server.App.Controllers
 			try
 			{
 				var participanteBll = new ParticipanteBll();
-				participanteBll.Create(participanteModelView);
-				return NoContent();
+				var eventoBll = new EventoBll();
+				var Verify = eventoBll.VerificaSeTemIngresso(participanteModelView.IdEvento);
+				if (Verify == true)
+				{
+					participanteBll.Create(participanteModelView);
+					return NoContent();
+				}
+				else
+					return StatusCode(500, "Acabaram os ingressos");
 			}
 			catch (Exception ex)
 			{
