@@ -11,7 +11,7 @@ using System;
 namespace Server.Dal.Migrations
 {
     [DbContext(typeof(MigrationDbContext))]
-    [Migration("20180225194502_AdicionandoTabelaEvento")]
+    [Migration("20180225214334_AdicionandoTabelaEvento")]
     partial class AdicionandoTabelaEvento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,8 +73,8 @@ namespace Server.Dal.Migrations
 
             modelBuilder.Entity("Server.Dal.Models.Participante", b =>
                 {
-                    b.HasOne("Server.Dal.Models.Evento", "Evento")
-                        .WithMany("Participante")
+                    b.HasOne("Server.Dal.Models.Evento")
+                        .WithMany("Participantes")
                         .HasForeignKey("IdEvento")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -25,11 +25,14 @@ namespace Server.Dal.DataAccessObject
 
 		public List<Evento> GetEventos()
 		{
+			_instance.Participantes.ToList();
 			return _instance.Eventos.ToList();
+
 		}
 
 		public Evento GetById(int id)
 		{
+			_instance.Participantes.ToList();
 			return _instance.Eventos.Find(id);
 		}
 

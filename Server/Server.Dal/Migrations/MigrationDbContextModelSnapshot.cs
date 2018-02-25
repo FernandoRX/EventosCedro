@@ -72,8 +72,8 @@ namespace Server.Dal.Migrations
 
             modelBuilder.Entity("Server.Dal.Models.Participante", b =>
                 {
-                    b.HasOne("Server.Dal.Models.Evento", "Evento")
-                        .WithMany("Participante")
+                    b.HasOne("Server.Dal.Models.Evento")
+                        .WithMany("Participantes")
                         .HasForeignKey("IdEvento")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -14,9 +14,7 @@ namespace Server.Dal.Models
 		public string Nome { get; set; }
 		public string Email { get; set; }
 
-		public int IdEvento { get; set; }
-
 		[ForeignKey("IdEvento")]
-		public Evento Evento { get; set; }
+		public int IdEvento { get; set; }
 	}
 }
