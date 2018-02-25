@@ -1,0 +1,11 @@
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\bin\Debug\netstandard2.0\Server.Bll.deps.json
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\bin\Debug\netstandard2.0\Server.Bll.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\bin\Debug\netstandard2.0\Server.Bll.pdb
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\bin\Debug\netstandard2.0\Server.Dal.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\bin\Debug\netstandard2.0\Server.Dal.pdb
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.csprojResolveAssemblyReference.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.csproj.CoreCompileInputs.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.AssemblyInfoInputs.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.AssemblyInfo.cs
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.Bll\obj\Debug\netstandard2.0\Server.Bll.pdb

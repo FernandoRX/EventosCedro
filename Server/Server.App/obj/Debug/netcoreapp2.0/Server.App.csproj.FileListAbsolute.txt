@@ -1,0 +1,15 @@
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.Bll.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.Dal.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.csprojResolveAssemblyReference.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.csproj.CoreCompileInputs.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.AssemblyInfoInputs.cache
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.AssemblyInfo.cs
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.App.deps.json
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.App.runtimeconfig.json
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.App.runtimeconfig.dev.json
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.App.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.App.pdb
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.Bll.pdb
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\bin\Debug\netcoreapp2.0\Server.Dal.pdb
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.dll
+C:\Users\Fernando Mota\Desktop\EventosCedro\Server\Server.App\obj\Debug\netcoreapp2.0\Server.App.pdb
