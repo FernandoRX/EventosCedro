@@ -12,7 +12,7 @@ namespace Server.Dal
 		//	: base(options)
 		//{ }
 		public DbSet<Evento> Eventos { get; set; }
-		public DbSet<Participante> Participante { get; set; }
+		public DbSet<Participante> Participantes { get; set; }
 
 		private static DataBase instance;
 

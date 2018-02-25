@@ -6,12 +6,17 @@ using System.Text;
 
 namespace Server.Dal.Models
 {
-    public class Participante
-    {
+	public class Participante
+	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int IdParticipante { get; set; }
 		public string Nome { get; set; }
 		public string Email { get; set; }
-    }
+
+		public int IdEvento { get; set; }
+
+		[ForeignKey("IdEvento")]
+		public Evento Evento { get; set; }
+	}
 }

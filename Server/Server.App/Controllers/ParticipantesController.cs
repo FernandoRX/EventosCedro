@@ -8,17 +8,17 @@ using Server.Bll;
 using Server.Dal.ModelView;
 
 namespace Server.App.Controllers
-{ 
-    [Route("api/Eventos")]
-    public class EventosController : Controller
+{
+    [Route("api/Participantes")]
+    public class ParticipantesController : Controller
     {
 		[HttpPost]
-		public IActionResult Post([FromBody]EventoModelView eventoModelView)
+		public IActionResult Post([FromBody]ParticipanteModelView participanteModelView)
 		{
 			try
 			{
-				var eventoBll = new EventoBll();
-				eventoBll.Create(eventoModelView);
+				var participanteBll = new ParticipanteBll();
+				participanteBll.Create(participanteModelView);
 				return NoContent();
 			}
 			catch (Exception ex)
@@ -29,13 +29,13 @@ namespace Server.App.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetEventos()
+		public IActionResult GetParticipantes()
 		{
 			try
 			{
-				var eventoBll = new EventoBll();
-				var ListEventos = eventoBll.GetEventos();
-				return Json(ListEventos);
+				var participanteBll = new ParticipanteBll();
+				var ListParticipantes = participanteBll.GetParticipantes();
+				return Json(ListParticipantes);
 			}
 			catch (Exception ex)
 			{
@@ -50,9 +50,9 @@ namespace Server.App.Controllers
 		{
 			try
 			{
-				var eventoBll = new EventoBll();
-				var evento = eventoBll.GetById(id);
-				return Json(evento);
+				var participanteBll = new ParticipanteBll();
+				var participante = participanteBll.GetById(id);
+				return Ok(participante);
 			}
 			catch (Exception ex)
 			{
@@ -66,8 +66,8 @@ namespace Server.App.Controllers
 		{
 			try
 			{
-				var eventoBll = new EventoBll();
-				eventoBll.Delete(id);
+				var participanteBll = new ParticipanteBll();
+				participanteBll.Delete(id);
 				return NoContent();
 			}
 			catch (Exception ex)
@@ -78,12 +78,12 @@ namespace Server.App.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public IActionResult Put([FromRoute]int id, [FromBody] EventoModelView eventoModelView)
+		public IActionResult Put([FromRoute]int id, [FromBody] ParticipanteModelView participanteModelView)
 		{
 			try
 			{
-				var eventoBll = new EventoBll();
-				eventoBll.Update(id, eventoModelView);
+				var participanteBll = new ParticipanteBll();
+				participanteBll.Update(id, participanteModelView);
 				return NoContent();
 			}
 			catch (Exception ex)
@@ -93,6 +93,5 @@ namespace Server.App.Controllers
 			}
 
 		}
-
 	}
 }

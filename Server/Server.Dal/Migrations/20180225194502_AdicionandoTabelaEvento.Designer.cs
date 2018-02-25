@@ -11,7 +11,7 @@ using System;
 namespace Server.Dal.Migrations
 {
     [DbContext(typeof(MigrationDbContext))]
-    [Migration("20180225151102_AdicionandoTabelaEvento")]
+    [Migration("20180225194502_AdicionandoTabelaEvento")]
     partial class AdicionandoTabelaEvento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,33 @@ namespace Server.Dal.Migrations
                     b.HasKey("IdEvento");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("Server.Dal.Models.Participante", b =>
+                {
+                    b.Property<int>("IdParticipante")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<int>("IdEvento");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("IdParticipante");
+
+                    b.HasIndex("IdEvento");
+
+                    b.ToTable("Participantes");
+                });
+
+            modelBuilder.Entity("Server.Dal.Models.Participante", b =>
+                {
+                    b.HasOne("Server.Dal.Models.Evento", "Evento")
+                        .WithMany("Participante")
+                        .HasForeignKey("IdEvento")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

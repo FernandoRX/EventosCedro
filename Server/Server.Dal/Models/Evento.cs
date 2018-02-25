@@ -22,7 +22,6 @@ namespace Server.Dal.Models
 		public int MaximoIngressos { get; set; }
 		public int IngressosVendidos { get; set; }
 
-		
 		public ICollection<Participante> Participante { get; set; }
 
 	}

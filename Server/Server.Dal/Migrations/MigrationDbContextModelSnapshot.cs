@@ -59,22 +59,23 @@ namespace Server.Dal.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<int?>("EventoIdEvento");
+                    b.Property<int>("IdEvento");
 
                     b.Property<string>("Nome");
 
                     b.HasKey("IdParticipante");
 
-                    b.HasIndex("EventoIdEvento");
+                    b.HasIndex("IdEvento");
 
                     b.ToTable("Participantes");
                 });
 
             modelBuilder.Entity("Server.Dal.Models.Participante", b =>
                 {
-                    b.HasOne("Server.Dal.Models.Evento")
+                    b.HasOne("Server.Dal.Models.Evento", "Evento")
                         .WithMany("Participante")
-                        .HasForeignKey("EventoIdEvento");
+                        .HasForeignKey("IdEvento")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
