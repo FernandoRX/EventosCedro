@@ -22,22 +22,23 @@ namespace Server.Bll
 			return participanteDao.GetById(id);
 		}
 
-		public void Create(ParticipanteModelView participanteModelView)
+		public string Create(ParticipanteModelView participanteModelView)
 		{
 			var participante = new Participante();
 			var participanteDao = new ParticipanteDao();
 			var eventoBll = new EventoBll();
 			var emailBll = new EmailBll();
 			participante = PrepareParticipante(participanteModelView, participante);
-			var Verify = eventoBll.VerificaSeTemIngresso(participante.IdEvento);
+			var Verify = eventoBll.HaveIngresso(participante.IdEvento);
 			if (Verify == true)
 			{
 				participanteDao.Create(participante);
 				emailBll.SendEmailWhenRegisters(participante);
+				return "Cadastrado com sucesso !";
 			}
 			else
 			{
-				Console.Write("Acabaram os ingressos");
+				return "Acabaram os ingressos";
 			}
 			
 		}
@@ -48,28 +49,29 @@ namespace Server.Bll
 			var participante = participanteDao.GetById(id);
 			participanteDao.Delete(id);
 			var eventoBll = new EventoBll();
-			eventoBll.SaiDoEvento(participante.IdEvento);
+			eventoBll.LeaveEvento(participante.IdEvento);
 		}
 
-		public void Update(int id, ParticipanteModelView participanteModelView)
+		public string Update(int id, ParticipanteModelView participanteModelView)
 		{
 			var participanteDao = new ParticipanteDao();
 			var participante = participanteDao.GetById(id);
 			if (participante.IdEvento != participanteModelView.IdEvento)
 			{
 				var eventoBll = new EventoBll();
-				var verify = eventoBll.VerificaSeTemIngresso(participanteModelView.IdEvento);
+				var verify = eventoBll.HaveIngresso(participanteModelView.IdEvento);
 				if (verify == true)
 				{
-					eventoBll.SaiDoEvento(participante.IdEvento);
+					eventoBll.LeaveEvento(participante.IdEvento);
 				}
 				else
 				{
-					Console.Write("Os ingressos acabaram");
+					return "Os ingressos acabaram";
 				}
 			}
 			participante = PrepareParticipante(participanteModelView, participante);
 			participanteDao.Update(participante);
+			return "Atualizado com sucesso";
 		}
 
 		public Participante PrepareParticipante( ParticipanteModelView participanteModelView, Participante participante)

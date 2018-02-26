@@ -20,6 +20,7 @@ namespace Server.Dal.ModelView
 		public int HoraFim { get; set; }
 		[Required(ErrorMessage = "Defina se o evento sera openBar")]
 		public bool OpenBar { get; set; }
+		[Required(ErrorMessage = "Informe quantos ambientes o evento tera")]
 		public int QuantidadeDeAmbientes { get; set; }
 		[Required(ErrorMessage = "Defina a quantidade de ingressos")]
 		public int MaximoIngressos { get; set; }

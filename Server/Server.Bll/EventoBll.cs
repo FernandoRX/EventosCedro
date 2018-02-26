@@ -32,6 +32,8 @@ namespace Server.Bll
 		public void Delete(int id)
 		{
 			var eventoDao = new EventoDao();
+			var emailBll = new EmailBll();
+			emailBll.SendMailWhenEventoDelete(id);
 			eventoDao.Delete(id);
 		}
 
@@ -40,6 +42,8 @@ namespace Server.Bll
 			var eventoDao = new EventoDao();
 			var evento = eventoDao.GetById(id);
 			evento = PrepareEvento(eventoModelView, evento);
+			var emailBll = new EmailBll();
+			emailBll.SendMailWhenEventoUpdate(evento);
 			eventoDao.Update(evento);
 		}
 
@@ -69,7 +73,7 @@ namespace Server.Bll
 			return evento;
 		}
 
-		public bool VerificaSeTemIngresso(int id)
+		public bool HaveIngresso(int id)
 		{
 			var eventoDao = new EventoDao();
 			var evento = eventoDao.GetById(id);
@@ -83,7 +87,7 @@ namespace Server.Bll
 				return false;
 		}
 
-		public void SaiDoEvento(int id)
+		public void LeaveEvento(int id)
 		{
 			var eventoDao = new EventoDao();
 			var evento = eventoDao.GetById(id);

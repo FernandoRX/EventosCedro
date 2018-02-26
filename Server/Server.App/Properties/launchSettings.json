@@ -11,16 +11,17 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+					"environmentVariables": {
+						"ASPNETCORE_ENVIRONMENT": "Development"
+					}
     },
     "Server.App": {
       "commandName": "Project",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
+					"environmentVariables": {
+						"ASPNETCORE_ENVIRONMENT": "Development",
+						"ConnectionString": "server=localhost;userid=root;password=root;database=eventoscedro;"
+					},
       "applicationUrl": "http://localhost:56900/"
     }
   }

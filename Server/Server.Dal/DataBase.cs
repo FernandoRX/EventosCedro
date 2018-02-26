@@ -33,7 +33,7 @@ namespace Server.Dal
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			options.UseMySql("server=localhost;userid=root;password=root;database=eventoscedro;");
+			options.UseMySql(Environment.GetEnvironmentVariable("ConnectionString"));
 		}
 
 	}

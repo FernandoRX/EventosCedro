@@ -30,9 +30,7 @@ namespace Server.App
 			services.AddMvc();
 
 			services.AddDbContext<MigrationDbContext>(options =>
-			options.UseMySql("server=localhost;" +
-			"userid=root;" +
-			"password=root;database=eventoscedro;"));
+			options.UseMySql("server=localhost;userid=root;password=root;database=eventoscedro;"));
 
 		}
 

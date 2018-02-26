@@ -22,8 +22,8 @@ namespace Server.App.Controllers
 			try
 			{
 				var participanteBll = new ParticipanteBll();
-				participanteBll.Create(participanteModelView);
-				return NoContent();
+				var mensagem = participanteBll.Create(participanteModelView);
+				return Ok(mensagem);
 			}
 			catch (Exception ex)
 			{
@@ -91,8 +91,8 @@ namespace Server.App.Controllers
 			try
 			{
 				var participanteBll = new ParticipanteBll();
-				participanteBll.Update(id, participanteModelView);
-				return NoContent();
+				var mensagem = participanteBll.Update(id, participanteModelView);
+				return Ok(mensagem);
 			}
 			catch (Exception ex)
 			{

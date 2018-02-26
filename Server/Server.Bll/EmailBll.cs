@@ -32,10 +32,90 @@ namespace Server.Bll
 				{
 					client.Send(mail);
 				}
-				catch(Exception ex)
+				catch (Exception ex)
 				{
 					Console.Write("Não foi possivel enviar o email, Erro = " + ex.Message);
 				}
+			}
+		}
+
+		public void SendMailWhenEventoDelete(int id)
+		{
+			var eventoBll = new EventoDao();
+			var evento = eventoBll.GetById(id);
+			var participanteBll = new ParticipanteBll();
+			var listParticipantes = participanteBll.GetParticipantes();
+
+			foreach (var participante in listParticipantes)
+			{
+				if (participante.IdEvento != evento.IdEvento)
+				{
+					continue;
+				}
+
+				MailMessage mail = new MailMessage();
+				mail.To.Add(new MailAddress(participante.Email));
+				mail.From = new MailAddress("CadastroEventos00@hotmail.com");
+				mail.Subject = "Alterações no evento  " + evento.Nome;
+				mail.IsBodyHtml = true;
+				mail.Body = "" + participante.Nome + ",<br/> Seu evento " + evento.Nome + " foi cancelado, entre em contato para mais detalhes";
+
+
+				SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
+				using (client)
+				{
+					client.Credentials = new System.Net.NetworkCredential("CadastroEventos00@hotmail.com", "cedro123");
+					client.EnableSsl = true;
+					try
+					{
+						client.Send(mail);
+					}
+					catch (Exception ex)
+					{
+						Console.Write("Não foi possivel enviar o email, Erro = " + ex.Message);
+					}
+
+				}
+
+			}
+		}
+
+		public void SendMailWhenEventoUpdate(Evento evento)
+		{
+			var participanteBll = new ParticipanteBll();
+			var listParticipantes = participanteBll.GetParticipantes();
+
+			foreach (var participante in listParticipantes)
+			{
+				if (participante.IdEvento != evento.IdEvento)
+				{
+					continue;
+				}
+
+				MailMessage mail = new MailMessage();
+				mail.To.Add(new MailAddress(participante.Email));
+				mail.From = new MailAddress("CadastroEventos00@hotmail.com");
+				mail.Subject = "Alterações no evento  " + evento.Nome;
+				mail.IsBodyHtml = true;
+				mail.Body = "" + participante.Nome + ",<br/> Aconteceram modificações no seu evento " + evento.Nome + ", entre em contato para mais detalhes";
+
+
+				SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
+				using (client)
+				{
+					client.Credentials = new System.Net.NetworkCredential("CadastroEventos00@hotmail.com", "cedro123");
+					client.EnableSsl = true;
+					try
+					{
+						client.Send(mail);
+					}
+					catch (Exception ex)
+					{
+						Console.Write("Não foi possivel enviar o email, Erro = " + ex.Message);
+					}
+
+				}
+
 			}
 		}
 	}
