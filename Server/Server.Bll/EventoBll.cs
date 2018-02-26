@@ -49,7 +49,6 @@ namespace Server.Bll
 
 		public Evento PrepareEvento(EventoModelView eventoModelView, Evento evento)
 		{
-			
 			evento.Data = eventoModelView.Data;
 			evento.HoraFim = eventoModelView.HoraFim;
 			evento.HoraInicio = eventoModelView.HoraInicio;

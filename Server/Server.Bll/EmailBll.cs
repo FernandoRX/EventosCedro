@@ -22,7 +22,6 @@ namespace Server.Bll
 			mail.IsBodyHtml = true;
 			mail.Body = "" + participante.Nome + ",</br> Seu cadastro para o evento " + evento.Nome + " foi concluido com sucesso !";
 
-
 			SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
 			using (client)
 			{
@@ -52,14 +51,12 @@ namespace Server.Bll
 				{
 					continue;
 				}
-
 				MailMessage mail = new MailMessage();
 				mail.To.Add(new MailAddress(participante.Email));
 				mail.From = new MailAddress("CadastroEventos00@hotmail.com");
 				mail.Subject = "Alterações no evento  " + evento.Nome;
 				mail.IsBodyHtml = true;
 				mail.Body = "" + participante.Nome + ",<br/> Seu evento " + evento.Nome + " foi cancelado, entre em contato para mais detalhes";
-
 
 				SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
 				using (client)
@@ -74,9 +71,7 @@ namespace Server.Bll
 					{
 						Console.Write("Não foi possivel enviar o email, Erro = " + ex.Message);
 					}
-
 				}
-
 			}
 		}
 
@@ -91,14 +86,12 @@ namespace Server.Bll
 				{
 					continue;
 				}
-
 				MailMessage mail = new MailMessage();
 				mail.To.Add(new MailAddress(participante.Email));
 				mail.From = new MailAddress("CadastroEventos00@hotmail.com");
 				mail.Subject = "Alterações no evento  " + evento.Nome;
 				mail.IsBodyHtml = true;
 				mail.Body = "" + participante.Nome + ",<br/> Aconteceram modificações no seu evento " + evento.Nome + ", entre em contato para mais detalhes";
-
 
 				SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
 				using (client)
@@ -113,9 +106,7 @@ namespace Server.Bll
 					{
 						Console.Write("Não foi possivel enviar o email, Erro = " + ex.Message);
 					}
-
 				}
-
 			}
 		}
 	}

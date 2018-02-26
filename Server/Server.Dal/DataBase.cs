@@ -8,9 +8,6 @@ namespace Server.Dal
 {
 	public class DataBase : DbContext
 	{
-		//public DataBase(DbContextOptions<DataBase> options)
-		//	: base(options)
-		//{ }
 		public DbSet<Evento> Eventos { get; set; }
 		public DbSet<Participante> Participantes { get; set; }
 
@@ -30,11 +27,9 @@ namespace Server.Dal
 			}
 		}
 
-
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
 			options.UseMySql(Environment.GetEnvironmentVariable("ConnectionString"));
 		}
-
 	}
 }

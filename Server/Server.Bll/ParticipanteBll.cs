@@ -40,7 +40,6 @@ namespace Server.Bll
 			{
 				return "Acabaram os ingressos";
 			}
-			
 		}
 
 		public void Delete(int id)

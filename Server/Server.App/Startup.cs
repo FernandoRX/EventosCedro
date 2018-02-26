@@ -26,12 +26,9 @@ namespace Server.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-			
 			services.AddMvc();
-
 			services.AddDbContext<MigrationDbContext>(options =>
 			options.UseMySql("server=localhost;userid=root;password=root;database=eventoscedro;"));
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

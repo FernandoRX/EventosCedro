@@ -27,7 +27,6 @@ namespace Server.Dal.DataAccessObject
 		{
 			_instance.Participantes.ToList();
 			return _instance.Eventos.ToList();
-
 		}
 
 		public Evento GetById(int id)

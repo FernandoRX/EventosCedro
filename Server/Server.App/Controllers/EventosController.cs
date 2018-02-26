@@ -99,8 +99,6 @@ namespace Server.App.Controllers
 				Console.WriteLine(ex.Message);
 				return StatusCode(500);
 			}
-
 		}
-
 	}
 }
