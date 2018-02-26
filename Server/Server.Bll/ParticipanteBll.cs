@@ -24,22 +24,50 @@ namespace Server.Bll
 
 		public void Create(ParticipanteModelView participanteModelView)
 		{
-				var participante = new Participante();
-				participante = PrepareParticipante(participanteModelView, participante);
-				var participanteDao = new ParticipanteDao();
+			var participante = new Participante();
+			var participanteDao = new ParticipanteDao();
+			var eventoBll = new EventoBll();
+			var emailBll = new EmailBll();
+			participante = PrepareParticipante(participanteModelView, participante);
+			var Verify = eventoBll.VerificaSeTemIngresso(participante.IdEvento);
+			if (Verify == true)
+			{
 				participanteDao.Create(participante);
+				emailBll.SendEmailWhenRegisters(participante);
+			}
+			else
+			{
+				Console.Write("Acabaram os ingressos");
+			}
+			
 		}
 
 		public void Delete(int id)
 		{
 			var participanteDao = new ParticipanteDao();
+			var participante = participanteDao.GetById(id);
 			participanteDao.Delete(id);
+			var eventoBll = new EventoBll();
+			eventoBll.SaiDoEvento(participante.IdEvento);
 		}
 
 		public void Update(int id, ParticipanteModelView participanteModelView)
 		{
 			var participanteDao = new ParticipanteDao();
 			var participante = participanteDao.GetById(id);
+			if (participante.IdEvento != participanteModelView.IdEvento)
+			{
+				var eventoBll = new EventoBll();
+				var verify = eventoBll.VerificaSeTemIngresso(participanteModelView.IdEvento);
+				if (verify == true)
+				{
+					eventoBll.SaiDoEvento(participante.IdEvento);
+				}
+				else
+				{
+					Console.Write("Os ingressos acabaram");
+				}
+			}
 			participante = PrepareParticipante(participanteModelView, participante);
 			participanteDao.Update(participante);
 		}

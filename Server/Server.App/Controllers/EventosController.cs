@@ -15,6 +15,10 @@ namespace Server.App.Controllers
 		[HttpPost]
 		public IActionResult Post([FromBody]EventoModelView eventoModelView)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 			try
 			{
 				var eventoBll = new EventoBll();
@@ -80,6 +84,10 @@ namespace Server.App.Controllers
 		[HttpPut("{id}")]
 		public IActionResult Put([FromRoute]int id, [FromBody] EventoModelView eventoModelView)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 			try
 			{
 				var eventoBll = new EventoBll();

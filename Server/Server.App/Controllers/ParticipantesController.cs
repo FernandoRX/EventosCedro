@@ -15,18 +15,15 @@ namespace Server.App.Controllers
 		[HttpPost]
 		public IActionResult Post([FromBody]ParticipanteModelView participanteModelView)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 			try
 			{
 				var participanteBll = new ParticipanteBll();
-				var eventoBll = new EventoBll();
-				var Verify = eventoBll.VerificaSeTemIngresso(participanteModelView.IdEvento);
-				if (Verify == true)
-				{
-					participanteBll.Create(participanteModelView);
-					return NoContent();
-				}
-				else
-					return StatusCode(500, "Acabaram os ingressos");
+				participanteBll.Create(participanteModelView);
+				return NoContent();
 			}
 			catch (Exception ex)
 			{
@@ -59,7 +56,7 @@ namespace Server.App.Controllers
 			{
 				var participanteBll = new ParticipanteBll();
 				var participante = participanteBll.GetById(id);
-				return Ok(participante);
+				return Json(participante);
 			}
 			catch (Exception ex)
 			{
@@ -87,6 +84,10 @@ namespace Server.App.Controllers
 		[HttpPut("{id}")]
 		public IActionResult Put([FromRoute]int id, [FromBody] ParticipanteModelView participanteModelView)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 			try
 			{
 				var participanteBll = new ParticipanteBll();

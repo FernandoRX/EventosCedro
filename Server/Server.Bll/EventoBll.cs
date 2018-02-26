@@ -76,10 +76,19 @@ namespace Server.Bll
 			if (evento.IngressosVendidos < evento.MaximoIngressos)
 			{
 				evento.IngressosVendidos++;
+				eventoDao.Update(evento);
 				return true;
 			}
 			else
 				return false;
+		}
+
+		public void SaiDoEvento(int id)
+		{
+			var eventoDao = new EventoDao();
+			var evento = eventoDao.GetById(id);
+			evento.IngressosVendidos--;
+			eventoDao.Update(evento);
 		}
 	}
 }
